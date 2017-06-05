@@ -1,0 +1,72 @@
+<?
+adminka::accessCheck('adminka_system_settings');
+$title .= ' - Настройки системы';
+include(HEAD);
+if (isset($_POST['sfsk']) && ussec::check_p()) {
+	$set -> profile_page = $_POST['profile_page'];
+	$set -> auth_page = $_POST['auth_page'];
+	$set -> sys_login = $_POST['sys_login'];
+	$set -> results_on_page = $_POST['results_on_page'];
+	$set -> goods_dir = $_POST['goods_dir'];
+	$set -> goods_previews_dir = $_POST['goods_previews_dir'];
+	$set -> percentage = $_POST['percentage'];
+	$set -> sys_wmid = $_POST['sys_wmid'];
+	$set -> sys_wmr = $_POST['sys_wmr'];
+	$set -> merchant_secret_key = $_POST['merchant_secret_key'];
+	$set -> time_online_user = $_POST['time_online_user'];
+	$set -> time_output = $_POST['time_output'];
+	$set -> time_output_pro = $_POST['time_output_pro'];
+	$set -> avatar_min_x = $_POST['avatar_min_x'];
+	$set -> avatar_min_y = $_POST['avatar_min_y'];
+	$set -> advt_good_price = floor($_POST['advt_good_price']);
+	$set -> advt_site_price = floor($_POST['advt_site_price']);
+	if (!$set -> save())$error = 'Ошибка сохранения настроек';
+	else {
+		alerts::msg_sess("Изменения успешно сохранены");
+		header("location: ?act=system_settings");
+		exit();
+	}
+}
+$el = array();
+$el[] = array('type' => 'title', 'value' => 'Ссылка на страницу пользователя:', 'br' => true);
+$el[] = array('type' => 'text', 'name' => 'profile_page', 'value' => TextUtils::DBFilter($set -> profile_page), 'br' => true);
+$el[] = array('type' => 'title', 'value' => 'Ссылка на страницу авторизации:', 'br' => true);
+$el[] = array('type' => 'text', 'name' => 'auth_page', 'value' => TextUtils::DBFilter($set -> auth_page), 'br' => true);
+$el[] = array('type' => 'title', 'value' => 'Ник системного бота:', 'br' => true);
+$el[] = array('type' => 'text', 'name' => 'sys_login', 'value' => TextUtils::DBFilter($set -> sys_login), 'br' => true);
+$el[] = array('type' => 'title', 'value' => 'Результатов на страницу:', 'br' => true);
+$el[] = array('type' => 'text', 'name' => 'results_on_page', 'value' => TextUtils::DBFilter($set -> results_on_page), 'br' => true);
+$el[] = array('type' => 'title', 'value' => 'Папка с товарами:', 'br' => true);
+$el[] = array('type' => 'text', 'name' => 'goods_dir', 'value' => TextUtils::DBFilter($set -> goods_dir), 'br' => true);
+$el[] = array('type' => 'title', 'value' => 'Папка со скриншотами:', 'br' => true);
+$el[] = array('type' => 'text', 'name' => 'goods_previews_dir', 'value' => TextUtils::DBFilter($set -> goods_previews_dir), 'br' => true);
+$el[] = array('type' => 'title', 'value' => 'Коммисия (в %):', 'br' => true);
+$el[] = array('type' => 'text', 'name' => 'percentage', 'value' => TextUtils::DBFilter($set -> percentage), 'br' => true);
+$el[] = array('type' => 'title', 'value' => 'Системный WMID:', 'br' => true);
+$el[] = array('type' => 'text', 'name' => 'sys_wmid', 'value' => TextUtils::DBFilter($set -> sys_wmid), 'br' => true);
+$el[] = array('type' => 'title', 'value' => 'Системный R-кошелек:', 'br' => true);
+$el[] = array('type' => 'text', 'name' => 'sys_wmr', 'value' => TextUtils::DBFilter($set -> sys_wmr), 'br' => true);
+$el[] = array('type' => 'title', 'value' => 'Секретный код Merchant:', 'br' => true);
+$el[] = array('type' => 'text', 'name' => 'merchant_secret_key', 'value' => TextUtils::DBFilter($set -> merchant_secret_key), 'br' => true);
+$el[] = array('type' => 'title', 'value' => 'Время пользователя онлайн (в секундах):', 'br' => true);
+$el[] = array('type' => 'text', 'name' => 'time_online_user', 'value' => TextUtils::DBFilter($set -> time_online_user), 'br' => true);
+$el[] = array('type' => 'title', 'value' => 'Время задержки денег (в секундах):', 'br' => true);
+$el[] = array('type' => 'text', 'name' => 'time_output', 'value' => TextUtils::DBFilter($set -> time_output), 'br' => true);
+$el[] = array('type' => 'title', 'value' => 'Время задержки денег для PRO (в секундах):', 'br' => true);
+$el[] = array('type' => 'text', 'name' => 'time_output_pro', 'value' => TextUtils::DBFilter($set -> time_output_pro), 'br' => true);
+$el[] = array('type' => 'title', 'value' => 'Минимальная ширина аватара (в пикселях):', 'br' => true);
+$el[] = array('type' => 'text', 'name' => 'avatar_min_x', 'value' => TextUtils::DBFilter($set -> avatar_min_x), 'br' => true);
+$el[] = array('type' => 'title', 'value' => 'Минимальная высота аватара (в пикселях):', 'br' => true);
+$el[] = array('type' => 'text', 'name' => 'avatar_min_y', 'value' => TextUtils::DBFilter($set -> avatar_min_y), 'br' => true);
+$el[] = array('type' => 'title', 'value' => 'Цена рекламы товара (WMR):', 'br' => true);
+$el[] = array('type' => 'text', 'name' => 'advt_good_price', 'value' => TextUtils::DBFilter($set -> advt_good_price), 'br' => true);
+$el[] = array('type' => 'title', 'value' => 'Цена рекламы стороннего ресурса (WMR):', 'br' => true);
+$el[] = array('type' => 'text', 'name' => 'advt_site_price', 'value' => TextUtils::DBFilter($set -> advt_site_price), 'br' => true);
+$el[] = array('type' => 'ussec');
+$el[] = array('type' => 'submit', 'name' => 'sfsk', 'value' => 'Сохранить', 'br' => true);
+$sm = new SMX();
+$sm -> assign('el', $el);
+$sm -> display('form.tpl');
+doc::back('Назад', '?act=index');
+include(FOOT);
+?>

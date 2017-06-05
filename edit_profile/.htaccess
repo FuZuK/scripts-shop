@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^info$ index.php?act=info [L,QSA]
+RewriteRule ^change_avatar$ index.php?act=change_avatar [L,QSA]
+RewriteRule ^crop_avatar$ index.php?act=crop_avatar [L,QSA]
+RewriteRule ^contacts$ index.php?act=contacts [L,QSA]
+RewriteRule ^business$ index.php?act=business [L,QSA]
+RewriteRule ^webmoney$ index.php?act=webmoney [L,QSA]
+
+</IfModule>

@@ -1,0 +1,15 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# Добавление тикета
+RewriteRule ^add_ticket$ index.php?act=add_ticket [L,QSA]
+
+# Просмотр тикета
+RewriteRule ^ticket/(\w*)$ index.php?act=ticket&ticket_id=$1 [L,QSA]
+
+# Закрытие тикета
+RewriteRule ^close_ticket/(\w*)$ index.php?act=close_ticket&ticket_id=$1 [L,QSA]
+
+# Открытие тикета
+RewriteRule ^open_ticket/(\w*)$ index.php?act=open_ticket&ticket_id=$1 [L,QSA]
+</IfModule>

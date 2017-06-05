@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+# Добавление статти
+RewriteRule ^add$ index.php?act=add [L,QSA]
+
+# Редактирование статти
+RewriteRule ^(\d{1,})/edit$ index.php?act=edit&stat_id=$1 [L,QSA]
+
+# Удаление статти
+RewriteRule ^(\d{1,})/delete$ index.php?act=delete&stat_id=$1 [L,QSA]
+
+# Просмотр статти
+RewriteRule ^(\d{1,})/read$ index.php?act=read&stat_id=$1 [L,QSA]
+</IfModule>

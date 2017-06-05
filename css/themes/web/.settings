@@ -1,0 +1,7 @@
+[Theme settings]
+name=WEB
+css=main.css
+templates=templates
+modules=modules
+images=images
+includes=includes

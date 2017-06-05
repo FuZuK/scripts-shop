@@ -1,0 +1,5 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^read_all/(\w*)$ index.php?act=read_all&ussec=$1 [L,QSA]
+RewriteRule ^readed$ index.php?act=readed [L,QSA]
+</IfModule>

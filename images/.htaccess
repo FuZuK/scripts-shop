@@ -1,0 +1,4 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^captcha.png captcha.php [L,QSA]
+</IfModule>

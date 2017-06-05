@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^pass$ index.php?act=pass [L,QSA]
+RewriteRule ^view$ index.php?act=view [L,QSA]
+RewriteRule ^email$ index.php?act=email [L,QSA]
+RewriteRule ^phone$ index.php?act=phone [L,QSA]
+RewriteRule ^keyword$ index.php?act=keyword [L,QSA]
+RewriteRule ^notifications$ index.php?act=notifications [L,QSA]
+</IfModule>

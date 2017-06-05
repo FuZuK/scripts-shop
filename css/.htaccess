@@ -1,0 +1,8 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^main.css css.php [L,QSA]
+</IfModule>
+<Files ~ "\.(tpl|php)$">
+order allow,deny
+deny from all
+</Files>

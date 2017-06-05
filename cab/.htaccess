@@ -1,0 +1,28 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# Бухгалтерия
+RewriteRule ^purchases$ index.php?act=purchases [L,QSA]
+
+# Движение средств
+RewriteRule ^moneylog$ index.php?act=moneylog [L,QSA]
+
+# Мои покупки
+RewriteRule ^accounting$ index.php?act=accounting [L,QSA]
+
+# Корзина
+RewriteRule ^basket$ index.php?act=basket [L,QSA]
+
+# Логи входов
+RewriteRule ^loglist$ index.php?act=loglist [L,QSA]
+
+# Выход из аккаунта
+RewriteRule ^logout$ index.php?act=exit_log [L,QSA]
+
+# Пополнение счета
+RewriteRule ^money$ index.php?act=money [L,QSA]
+
+# Черный список
+RewriteRule ^blist$ index.php?act=blist [L,QSA]
+
+</IfModule>

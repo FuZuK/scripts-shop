@@ -1,0 +1,8 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+# Удаление сообщения
+RewriteRule ^delete_mess/([0-9]*)/(.*)$ index.php?act=delete_mess&mess_id=$1&ussec=$2 [L,QSA]
+
+# Ответ
+RewriteRule ^reply_mess/([0-9]*)$ index.php?act=reply_mess&mess_id=$1 [L,QSA]
+</IfModule>

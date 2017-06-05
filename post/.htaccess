@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+# Написать письмо
+RewriteRule ^send/([0-9]*)$ index.php?act=send&user_id=$1 [L,QSA]
+
+# Просмотр переписки
+RewriteRule ^cont/([0-9]*)$ index.php?act=cont&cont_id=$1 [L,QSA]
+
+# Удаление контакта
+RewriteRule ^delete_cont/([0-9]*)$ index.php?act=delete_cont&cont_id=$1 [L,QSA]
+</IfModule>

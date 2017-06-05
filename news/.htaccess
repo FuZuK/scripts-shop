@@ -1,0 +1,24 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# Главная
+RewriteRule ^([0-9]*)$ index.php?user_id=$1 [L,QSA]
+
+# добавление новости
+RewriteRule ^add$ index.php?act=add [L,QSA]
+
+# чтение новости
+RewriteRule ^read/([0-9]*)$ index.php?act=read&new_id=$1 [L,QSA]
+
+# редактирование новости
+RewriteRule ^edit/([0-9]*)$ index.php?act=edit&new_id=$1 [L,QSA]
+
+# удаление новости
+RewriteRule ^delete/([0-9]*)$ index.php?act=delete&new_id=$1 [L,QSA]
+
+# Удаление комментария
+RewriteRule ^delete_comment/([0-9]*)/(.*)$ index.php?act=delete_comment&comment_id=$1&ussec=$2 [L,QSA]
+
+# Ответ
+RewriteRule ^reply_comment/([0-9]*)$ index.php?act=reply_comment&comment_id=$1 [L,QSA]
+</IfModule>

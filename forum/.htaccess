@@ -1,0 +1,79 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# Создание подфорума
+RewriteRule ^create/forum$ index.php?act=create_forum [L,QSA]
+
+# Редактирование подфорума
+RewriteRule ^edit/forum/([0-9]*)$ index.php?act=edit_forum&forum_id=$1 [L,QSA]
+
+# Удаление подфорума
+RewriteRule ^delete/forum/([0-9]*)$ index.php?act=delete_forum&forum_id=$1 [L,QSA]
+
+# Просмотр подфорума
+RewriteRule ^f/([0-9]*)$ index.php?act=forum&forum_id=$1 [L,QSA]
+
+# Модераторы подфорума
+RewriteRule ^moders/forum/([0-9]*)$ index.php?act=moders_forum&forum_id=$1 [L,QSA]
+
+# Создание категории
+RewriteRule ^create/cat/([0-9]*)$ index.php?act=create_cat&forum_id=$1 [L,QSA]
+
+# Редактирование категории
+RewriteRule ^edit/cat/([0-9]*)$ index.php?act=edit_cat&cat_id=$1 [L,QSA]
+
+# Удаление категории
+RewriteRule ^delete/cat/([0-9]*)$ index.php?act=delete_cat&cat_id=$1 [L,QSA]
+
+# Просмотр категории
+RewriteRule ^c/([0-9]*)$ index.php?act=cat&cat_id=$1 [L,QSA]
+
+# Создание топика
+RewriteRule ^create/topic/([0-9]*)$ index.php?act=create_topic&cat_id=$1 [L,QSA]
+
+# Редактирование топика
+RewriteRule ^edit/topic/([0-9]*)$ index.php?act=edit_topic&topic_id=$1 [L,QSA]
+
+# Удаление топика
+RewriteRule ^delete/topic/([0-9]*)$ index.php?act=delete_topic&topic_id=$1 [L,QSA]
+
+# Кураторы топика
+RewriteRule ^curators/topic/([0-9]*)$ index.php?act=curators_topic&topic_id=$1 [L,QSA]
+
+# Просмотр топика
+RewriteRule ^t/([0-9]*)$ index.php?act=topic&topic_id=$1 [L,QSA]
+
+# Перемещение топика
+RewriteRule ^remove/topic/([0-9]*)$ index.php?act=remove_topic&topic_id=$1 [L,QSA]
+
+# Редактирование комментария
+RewriteRule ^edit/comment/([0-9]*)$ index.php?act=edit_comment&comment_id=$1 [L,QSA]
+
+# Удаление комментария
+RewriteRule ^delete/comment/([0-9]*)/(.*)$ index.php?act=delete_comment&comment_id=$1&ussec=$2 [L,QSA]
+
+# Удаление комментария
+RewriteRule ^sh/comment/([0-9]*)/(.*)$ index.php?act=sh_comment&comment_id=$1&ussec=$2 [L,QSA]
+
+# Ответ на комментарий
+RewriteRule ^reply/([0-9]*)$ index.php?act=reply&comment_id=$1 [L,QSA]
+
+# Создание опроса
+RewriteRule ^poll/new/([0-9]*)$ index.php?act=poll_new&cat_id=$1 [L,QSA]
+
+# Прикрепление опроса
+RewriteRule ^poll/add/([0-9]*)$ index.php?act=poll_add&topic_id=$1 [L,QSA]
+
+# Редактирование опроса
+RewriteRule ^poll/edit/([0-9]*)$ index.php?act=poll_edit&topic_id=$1 [L,QSA]
+
+# Новые топики
+RewriteRule ^new_topics$ index.php?act=new_topics [L,QSA]
+
+# Мои топики
+RewriteRule ^my_topics$ index.php?act=my_topics [L,QSA]
+
+# Поиск
+RewriteRule ^search$ index.php?act=search [L,QSA]
+
+</IfModule>

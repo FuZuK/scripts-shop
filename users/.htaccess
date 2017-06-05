@@ -1,0 +1,6 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^online$ index.php?act=online [L,QSA]
+RewriteRule ^guests$ index.php?act=guests [L,QSA]
+RewriteRule ^all$ index.php?act=index [L,QSA]
+</IfModule>

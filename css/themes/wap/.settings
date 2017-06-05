@@ -1,0 +1,7 @@
+[Theme settings]
+name=WAP
+css=main.css
+templates=templates
+modules=modules
+images=images
+includes=includes

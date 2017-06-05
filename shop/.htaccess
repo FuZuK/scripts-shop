@@ -1,0 +1,57 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# Куда посылаем запрс
+RewriteRule ^purse_merchant_payment$ index.php?act=purse_merchant_payment [L,QSA]
+
+# Сделка удалась
+RewriteRule ^success$ index.php?act=payment_success [L,QSA]
+
+# Сделка не удалась
+RewriteRule ^fail$ index.php?act=payment_fail [L,QSA]
+
+# добавление категории
+RewriteRule ^add_category/([0-9]*) index.php?act=add_category&category_id=$1 [L,QSA]
+
+# добавление категории
+RewriteRule ^add_category/([0-9]*) index.php?act=add_category&category_id=$1 [L,QSA]
+
+# редактирование категории
+RewriteRule ^edit_category/([0-9]*) index.php?act=edit_category&category_id=$1 [L,QSA]
+
+# удаление категории
+RewriteRule ^delete_category/([0-9]*) index.php?act=delete_category&category_id=$1 [L,QSA]
+
+# удаление категории
+RewriteRule ^delete_good/([0-9]*) index.php?act=delete_good&good_id=$1 [L,QSA]
+
+# категория
+RewriteRule ^category/([0-9]*) index.php?act=category&category_id=$1 [L,QSA]
+
+# товар
+RewriteRule ^good/([0-9]*) index.php?act=good&good_id=$1 [L,QSA]
+
+# покупка товара
+RewriteRule ^buy/([0-9]*)/personal_money index.php?act=buy&good_id=$1&paytype=personal_money [L,QSA]
+RewriteRule ^buy/([0-9]*)/merchant index.php?act=buy&good_id=$1&paytype=merchant [L,QSA]
+RewriteRule ^buy/([0-9]*) index.php?act=buy&good_id=$1 [L,QSA]
+
+# товары пользователя
+RewriteRule ^seller/([0-9]*)$ index.php?act=seller&seller_id=$1 [L,QSA]
+
+# поиск товаров
+RewriteRule ^search$ index.php?act=search [L,QSA]
+
+# рейтинг продавцов
+RewriteRule ^sellers_rating$ index.php?act=sellers_rating [L,QSA]
+
+# удаление товара
+RewriteRule ^delete_good/([0-9]*)$ index.php?act=delete_good&good_id=$1 [L,QSA]
+
+# новые товары
+RewriteRule ^new$ index.php?act=new [L,QSA]
+
+# Отзывы о товарах пользователя
+RewriteRule ^seller_reviews/([0-9]*)$ index.php?act=seller_reviews&user_id=$1 [L,QSA]
+
+</IfModule>
